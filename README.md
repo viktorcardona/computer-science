@@ -192,9 +192,84 @@
 
 # DFS: Depth First Search
 
-	Go forward (in depth)  while there is any such possibility, if not then, backtrack
+	Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures.
+	Go forward (in depth)  while there is any such possibility, if not then, backtrack. 
+	Backtrack means we have achive a dead end, so move back and choose another path.
+	Uses a *** Stack *** data structure
+	In the graph we can have cycles, therefore we need to use a boolean visited array. The flag is true if the node was visited.
 
-	
+	Implementation which traverses only the vertices reacheable from a given vertex:
+
+		void DFS(int v) {
+			int size = numberOfNodes;
+			boolean visited[] = new boolean[size]
+			DFSRecursive(v, visited);
+		}
+
+		void DFSRecursive(int v, boolean[] visited) {
+			visited[v] = true;
+			System.out.print( v + " ");
+
+			Iterator<Integer> adjacentNodes = adjacentNodes(v);
+
+			while (adjacentNodes.hasNext()) {
+				int nextNode = adjacentNodes.next();
+				if (!visited[nextNode]) {
+					DFSRecursive(nextNode, visited);
+				}
+			}
+		}
+
+	Implementation which traverses all vertices even when some of them are disconnected:
+
+		void DFS(int v) {
+			int numberOfNodes;
+			boolean visited[] = new boolean[numberOfNodes]
+
+			for (int i=0; i < numberOfNodes; i++) {
+				if (!visited[i]) {
+					DFSRecursive(v, visited);
+				}
+			}
+		}
+
+		void DFSRecursive(int v, boolean[] visited) {
+			visited[v] = true;
+			System.out.print( v + " ");
+
+			Iterator<Integer> adjacentNodes = adjacentNodes(v);
+
+			while (adjacentNodes.hasNext()) {
+				int nextNode = adjacentNodes.next();
+				if (!visited[nextNode]) {
+					DFSRecursive(nextNode, visited);
+				}
+			}
+		}
+
+	References:
+		https://en.wikipedia.org/wiki/Depth-first_search
+		https://www.youtube.com/watch?v=Y40bRyPQQr0
+
+
+	Applications:
+		- Used to detect cycles in a grapgh. 
+		- Grapgh cycles detection are used for producing a minimum spanning tree, which is a subgraph where all nodes are connected
+			without cycles with the minimum possible cost. The cost is the weight of each edge.
+		- Topological Sorting
+		- Finding Strongly Connected Components of a graph: A directed graph is called strongly connected if there is a path from each vertex in the graph to every other vertex.
+
+	Time Complexity:
+
+		O(|V| + |E|)
+
+		V: Vertices
+		E: Edges
+
+	Implementation Example:
+		https://github.com/viktorcardona/hackerrank/blob/master/004-kruskal/src/dfs/Solution.java
+		https://github.com/viktorcardona/hackerrank/blob/master/007-dfs-cciag/src/Solution.java
+
 
 # BFS: Breadth First Search
 
@@ -244,7 +319,7 @@
 
 # MST: Minimum Spanning Tree
 
-	It is a sub-tree where all nodes are connected with no cycles with the minimum possible cost. The cost is the given weight on eacg edge.
+	It is a sub-tree where all nodes are connected with no cycles with the minimum possible cost. The cost is the given weight on each edge.
 
 	Applications:
 
