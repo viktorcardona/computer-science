@@ -77,8 +77,10 @@
 		}
 
 
-# Binary Search Tree
+# BST: Binary Search Tree
 
+	Binary Search Tree = Ordered Binary Tree
+	
 	A binary search tree fulfills a specific ordering property.
 		-	On any subtree the left node are less than the root node which is less than all the right nodes.
 		-	This ordering property makes finding a node VERY VERY fast because we have a pretty good idea of where it would be.
