@@ -508,3 +508,47 @@
 		Delete-min		O(log n)
 		Decrease-key	Θ(1)
 		Merge			Θ(1)
+
+
+# Trie
+	
+	A trie, also called digital tree, radix tree or prefix tree is a kind of search tree.
+	Where the keys are usually strings
+	Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated
+	All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty string
+	Keys tend to be associated with leaves.
+	For the space-optimized presentation of prefix tree, see compact prefix tree.
+	Every node of Trie consists of multiple branches. Each branch represents a possible character of keys.
+	Mark the last node of every key as end of word node.
+
+	Reference:
+		https://en.wikipedia.org/wiki/Trie
+		https://www.geeksforgeeks.org/trie-insert-and-search
+
+	Applications:
+	 	- A common application of a trie is storing a predictive text or autocomplete dictionary, such as found on a mobile telephone
+
+	Time Complexity:
+
+	 	- O(key_length)
+
+	Space Complexity:
+
+	 	- O(ALPHABET_SIZE * key_length * N) where N is number of keys in Trie.
+	
+	- Insert and Find run in O(n) time, where n is the length of the key. However the penalty is on Trie storage requirements.
+
+	A simple structure to represent nodes of English alphabet can be as following:
+	 	struct TrieNode
+		{
+		     struct TrieNode *children[ALPHABET_SIZE];
+		     // isEndOfWord is true if the node
+		     // represents end of a word
+		     bool isEndOfWord;
+		};
+		
+		- Every character of input key is inserted as an individual Trie node.
+		- The children is an array of pointers (or references) to next level trie nodes.
+		- The key length determines Trie depth.
+
+
