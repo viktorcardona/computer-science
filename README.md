@@ -551,4 +551,12 @@
 		- The children is an array of pointers (or references) to next level trie nodes.
 		- The key length determines Trie depth.
 
+	Implementation:
+		Contatcs App:
+			reTRIEves, counts the list of contacts with the given prefix.
+			https://github.com/viktorcardona/hackerrank/blob/master/011-trie-contacts/src/Solution.java
+		Prefixed Words:
+			Detect is there is already a prefixed word when a new word is added
+			https://github.com/viktorcardona/hackerrank/blob/master/012-trie-noprefixset/src/Solution.java
+
 
